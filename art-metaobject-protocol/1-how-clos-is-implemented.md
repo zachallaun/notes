@@ -68,6 +68,6 @@ During initialization, an instance and its slots will first be allocated, and th
 
 - **What does it mean to change an instance's class?**
 
-In effect, the instance is used to initialize a new instance of the new class, wile still retaining its identity and shared slot values. Slots that aren't common to both classes, though, will be dropped.
+In effect, the instance is used to initialize a new instance of the new class, while still retaining its identity and shared slot values. Slots that aren't common to both classes, though, will be dropped.
 
 ## Representing Generic Functions
