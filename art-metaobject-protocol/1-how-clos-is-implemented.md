@@ -62,4 +62,34 @@ In effect, the instance is used to initialize a new instance of the new class, w
 
 - **What kind of object underlies generic functions?**
 
-A generic function is also represented by a metaobject, the _generic function metaobject_! This metaobject stores all of the methods defined on the generic function as well as the parameter signature for the implementation.
+A generic function is also represented by a metaobject, the _generic function metaobject_! This metaobject stores all of the methods defined on the generic function as well as the parameter signature for the implementation. Methods defined using `defmethod` also have a metaobject associated with them, which contains information relevant to that particular method, including a reference to its generic function's metaobject.
+
+A _method metaobject_ also needs to know all of the definitions in lexical scope, so that they may be used during a method invocation. This is apparently difficult to do in Common Lisp, and so Closette chooses to only retain the more simple top-level environment.
+
+- **How does Closette dispatch on generic function invocation?**
+
+At a high level, Closette dispatches on generic fn calls using a process called _method lookup_, which has three parts: 1) determine which methods are applicable based on the given arguments, 2) sort those methods in order of decreasing precedence, and 3) sequence the execution of the sorted list of methods based on the qualifiers (`:before`, `:after`, etc).
+
+In order to accomplish this, calls to generic functions are immediately dispatched to `apply-generic-function`, such that:
+
+```cl
+(generic-function arg1 arg2)
+;; becomes
+(apply-generic-function #'generic-function (list arg1 arg2))
+```
+
+Then:
+
+1. Find applicable methods
+
+This is done by comparing the arguments to the generic fn with the specializers defined on the various methods. If the classes of the arguments match the specializers, then the method is applicable. (The arguments could also be instances of subclasses of the specializers.)
+
+2. Sort by decreasing precedence
+
+Method precedence is determined by class precedence, where the specializer that is deemed more "specific" (a subclass, for instance) will have higher precedence than a less specific specializer (a superclass). This is slightly more complicated in the case of multiple inheritance, but not incredibly so. You can just use the argument's class precedence list.
+
+3. Sequence the applicable methods
+
+All of the sorted, applicable methods are then grouped into `:before`, primary, and `:after` methods. All of the `:before` methods are executed, from most specific to least, then the most specific primary method, then all of the `:after` methods, similar to `:before`. The values returned from the call to the generic fn are the values returned from the primary method.
+
+Within the most specific primary method, `call-next-method` can be called to call the next most specific primary method.
