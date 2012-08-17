@@ -4,13 +4,9 @@
 
 Closette is a CLOS interpreter, simplified for pedagogical purposes. It is presented to give a glimpse of the parts of implemetation for CLOS.
 
-## A Subset of CLOS
-
 - **What will Closette contain?**
 
 Closette will contain _classes_, _instances_, _generic functions_, and _methods_. There's a list of major restrictions on p14.
-
-## Basic Backstage Structures
 
 - **What are the fundamental CLOS forms?**
 
@@ -18,8 +14,6 @@ Closette will contain _classes_, _instances_, _generic functions_, and _methods_
 `defgeneric`: Define a generic function for a class, along with an interface for calling that function.
 `defmethod`: An implementation for a generic function. Supports simple pattern matching on argument types.
 `make-instance`: Returns an object based on a class. The arguments received by `make-isntance` are dependent on the class and are defined in a `defclass` form.
-
-## Representing Classes
 
 - **How are metaobjects involved in classes?**
 
@@ -43,13 +37,9 @@ A very readable implementation of this after-method can be found on p23. Basical
 
 All of the superclasses are ordered using local topological precedence, with special rules to resolve ties. This always leads to `standard-object`, followed by `t`, to be the last things from which a class inherits.
 
-## Printing Objects
-
 - **How are objects printed in Closette?**
 
 All object printing is controlled by the generic function `print-object`, and a method is defined for all instances of `standard-object`.
-
-## Representing the Structure of Instances
 
 - **What are important considerations for a model of instances?**
 
@@ -70,4 +60,6 @@ During initialization, an instance and its slots will first be allocated, and th
 
 In effect, the instance is used to initialize a new instance of the new class, while still retaining its identity and shared slot values. Slots that aren't common to both classes, though, will be dropped.
 
-## Representing Generic Functions
+- **What kind of object underlies generic functions?**
+
+A generic function is also represented by a metaobject, the _generic function metaobject_! This metaobject stores all of the methods defined on the generic function as well as the parameter signature for the implementation.
