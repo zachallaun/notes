@@ -46,13 +46,13 @@ This model contains a memory unit, to which access is granted by a CPU. A progra
 
 - **What is the _von Neumann bottleneck_?**
 
-All memory must be access sequentially by the CPU; the speed of the program, then, is limited by the "speed" and "width" of the path between the CPU and the memory.
+All memory must be accessed sequentially by the CPU; the speed of the program, then, is limited by the "speed" and "width" of the path between the CPU and the memory.
 
 - **What is one way in which the bottleneck can be overcome?**
 
-For many programs, _assignment_ is of key importants. That is, you attach a name to some register in memory. Then, the program sequences access and modification of those memory registers; each access and modification is subject to the von Neumann bottleneck.
+For many programs, _assignment_ is of key importance. That is, you attach a name to some register in memory. Then, the program sequences access and modification of those memory registers; each access and modification is subject to the von Neumann bottleneck.
 
-If, however, variables did not vary, and "assignment" became attaching a value to a symbol that would not change during execution, there are more opportunities to break the bottleneck.
+If, however, variables did not vary, and "assignment" became attaching a value to a symbol that would not change during execution, there would be more opportunities to break the bottleneck.
 
 - **How can an object be characterized?**
 
