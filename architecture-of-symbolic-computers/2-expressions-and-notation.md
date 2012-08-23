@@ -6,16 +6,18 @@
 
 ## Exercises
 
-1) Convert the following infix expression to both prefix and reverse Polish: `(b + sqrt(b * b - 4 * a * c)) / (2 * a)`
+_1) Convert the following infix expression to both prefix and reverse Polish:_ `(b + sqrt(b * b - 4 * a * c)) / (2 * a)`
 
 Prefix: `(/ (+ b sqrt(- (* b b) (* 4 a c))) (* 2 a))`
+
 Reverse Polish: `(b (((b b *) (4 a c *) -) sqrt) +) (2 a *) /`
 
 > Reverse Polish freaks me out. No clue if this is correct, really.
 
-2) Fn of 3 arguments, a, b, and c, and returns a value equal to that of problem 1.
+_2) Fn of 3 arguments, a, b, and c, and returns a value equal to that of problem 1._
 
 Rewrite rule: `f(a, b, c) = (b + sqrt(b * b - 4 * a * c)) / (2 * a)`
+
 Lambda fn: `(lambda abc|(b + sqrt(b * b - 4 * a * c)) / (2 * a))`
 
 Lambda reduction when arguments are 2, 6, and 8.
@@ -27,7 +29,7 @@ Lambda reduction when arguments are 2, 6, and 8.
 (6 + sqrt(6 * 6 - 4 * 2 * 8)) / (2 * 2)
 ```
 
-3) Reduce the following:
+_3) Reduce the following:_
 
 - `[2/y]([3/x] (x + y))`
 
@@ -53,7 +55,7 @@ Lambda reduction when arguments are 2, 6, and 8.
 
 My thought is that these reductions are supposed to occur simultaneously, which suggests that maybe this behavior is undefined? or would depend on implementation?
 
-4) Describe using Baukus Naur Form a language of signed integers.
+_4) Describe using Baukus Naur Form a language of signed integers._
 
 ```
 <digit> := 0|1|2|3|4|5|6|7|8|9
@@ -62,6 +64,6 @@ My thought is that these reductions are supposed to occur simultaneously, which 
 <signed-int> := {<sign>}<integer>
 ```
 
-5) Write a set of BNF statements that accurately describes the syntax of BNF itself.
+_5) Write a set of BNF statements that accurately describes the syntax of BNF itself._
 
 > TODO
