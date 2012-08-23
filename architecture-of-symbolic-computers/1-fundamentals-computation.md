@@ -26,17 +26,17 @@ A procedural language emphasizes the description of the steps of algorithms, whi
 
 - **What are the three methods of describing programming language semantics?**
 
-1. Interpretative semantics
+- Interpretative semantics
 
 Interpretative semantics describes the translation of the pieces of a programming languages syntax into code that for some abstract machine.
 
-2. Axiomatic semantics
+- Axiomatic semantics
 
 Axiomatic semantics describe a change in "state" given the execution of some feature of the language. In particular, an axiom would describe the "before" and the "after", but would not describe the process or algorithm.
 
 These kinds of semantics can be helpful in describing instructions to abstract machines; you know what will happen given an instruction, but it isn't your responsibility to know about the actual implementation of that particular instruction.
 
-3. Denotational semantics
+- Denotational semantics
 
 Denotational semantics describe the mapping of language notation onto abstract, human-understandable values. (For instance, perhaps the binary 00000011 to the number 3.)
 
