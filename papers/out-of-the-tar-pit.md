@@ -1,11 +1,11 @@
 # Out of the Tar Pit
 ## Moseley & Marks, 2006
 
-Tony Hoare, in his 1980 Turing award speech:
+C. A. R. Hoare, in his 1980 Turing award speech:
 
 > I conclude that there are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult.
 
-- **What approaches are there to understanding systems?**
+- **What are some approaches to understanding software?**
 
 _Testing_ espouses an outside-in approach, where components are examined as black boxes.
 
@@ -71,17 +71,17 @@ While Prolog tends to fall short of this goal (see: goal ordering, cuts), logic 
 
 Hypothetically, then, logic programming can let the programmer eschew control and implementation in favor of facts and relations. And if fine-grained control is needed, it can be had.
 
-- **How can essential and accidental complexity be differentiated?**
+- **How are essential and accidental complexity different?**
 
 Essential complexity represents the complexity inherent in the users' problem; that is, given an ideal world, it is the complexity that the programmer would still have to manage. Accidental complexity is everything else, such as those things that step from implementation or language choices.
 
 It is accidental complexity that is brought around by issues of state and control.
 
-- **What is the synchrony hypothesis?**
+- **What is the _synchrony hypothesis_?**
 
 It is an assumption that finite and stateless computations take place in zero time, and as such it does not matter whether or not they happen in sequence or in parallel.
 
-- **In what cases might accidental complexities be necessary?**
+- **Why might accidental complexities be necessary?**
 
 Performance and ease of expression.
 
